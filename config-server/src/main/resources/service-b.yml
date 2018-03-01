@@ -1,4 +1,4 @@
-name: michael_in_cloud
+msg: Hello World
 spring:
   boot:
     admin:

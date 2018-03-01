@@ -1,8 +1,7 @@
-name: michael_in_cloud
 spring:
   boot:
     admin:
-      url: http://localhost:8040
+      url: http://admin-dashboard:8040
 management:
   security:
     enabled: false

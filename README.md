@@ -11,7 +11,7 @@ The registry center uses the eureka, if you want to use consul, you can refer to
 
 ## Getting Started
 ```shell
-./gradlew clean build -x test
+./mvnw clean package
 ./buildDockerImage.sh
 docker-compose up -d
 ```

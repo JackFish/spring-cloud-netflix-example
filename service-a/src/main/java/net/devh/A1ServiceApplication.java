@@ -9,6 +9,7 @@ import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.context.annotation.Bean;
 
 import io.swagger.annotations.Api;
+import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
@@ -38,9 +39,18 @@ public class A1ServiceApplication {
                 .build()
                 .pathMapping("/")
                 .useDefaultResponseMessages(false)
-                .apiInfo(new ApiInfo("Service A API Doc", "Service A API Doc", "1.0", "https://github.com/yidongnan/spring-cloud-netflix-example",
-                        new Contact("Michael", "https://github.com/yidongnan", "yidongnan@gmail.com"), null, null))
+                .apiInfo(apiInfo())
                 .forCodeGeneration(true);
+    }
+
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                .title("Service A API Doc")
+                .description("Service A API Doc")
+                .termsOfServiceUrl("https://github.com/yidongnan/spring-cloud-netflix-example")
+                .contact(new Contact("jack_zhou", "https://github.com/JackFish/spring-cloud-netflix-example.git", "jack_zhou@epam.com"))
+                .version("v1")
+                .build();
     }
 
     public static void main(String[] args) {

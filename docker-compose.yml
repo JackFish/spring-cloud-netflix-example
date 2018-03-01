@@ -17,14 +17,14 @@ services:
     restart: unless-stopped
 
   eureka-server:
-    image:  spring-cloud-netflix-example/eureka-server
+    image:  spring-cloud-netflix-example/eureka-server:1.0.0
     hostname: eureka-server
     ports:
       - "8761:8761"
     restart: unless-stopped
 
   config-server:
-    image:  spring-cloud-netflix-example/config-server
+    image:  spring-cloud-netflix-example/config-server:1.0.0
     depends_on:
       - "eureka-server"
       - "rabbitmq"
@@ -33,7 +33,7 @@ services:
     restart: unless-stopped
 
   service-b:
-    image:  spring-cloud-netflix-example/service-b
+    image:  spring-cloud-netflix-example/service-b:1.0.0
     depends_on:
       - "eureka-server"
       - "config-server"
@@ -43,7 +43,7 @@ services:
     restart: unless-stopped
 
   service-a:
-    image:  spring-cloud-netflix-example/service-a
+    image:  spring-cloud-netflix-example/service-a:1.0.0
     depends_on:
       - "eureka-server"
       - "config-server"
@@ -54,7 +54,7 @@ services:
     restart: unless-stopped
 
   admin-dashboard:
-    image:  spring-cloud-netflix-example/admin-dashboard
+    image:  spring-cloud-netflix-example/admin-dashboard:1.0.0
     ports:
       - "8040:8040"
     depends_on:
@@ -68,7 +68,7 @@ services:
     restart: unless-stopped
 
   zuul:
-    image:  spring-cloud-netflix-example/zuul
+    image:  spring-cloud-netflix-example/zuul:1.0.0
     ports:
       - "8060:8060"
     depends_on:
@@ -80,7 +80,7 @@ services:
     restart: unless-stopped
 
   hystrix-dashboard:
-    image:  spring-cloud-netflix-example/hystrix-dashboard
+    image:  spring-cloud-netflix-example/hystrix-dashboard:1.0.0
     ports:
       - "8050:8050"
     depends_on:
